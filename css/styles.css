@@ -1960,8 +1960,31 @@ body.scrolled-past-hero .hero-scroll-indicator {
         margin: var(--space-xl) 0;
     }
 
+    /* One image per row, full content width — no side‑by‑side pairs on phones */
     .project-gallery-arc-grid {
-        gap: var(--space-lg);
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+        grid-auto-rows: auto;
+    }
+
+    .project-gallery-item.size-full,
+    .project-gallery-item.size-wide,
+    .project-gallery-item.size-narrow,
+    .project-gallery-item.size-half,
+    .project-gallery-item.size-tall {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .project-gallery-item.orientation-portrait.size-full {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+    }
+
+    .project-gallery-item.orientation-portrait {
+        max-width: none;
+        width: 100%;
+        justify-self: stretch;
     }
 
     .project-detail-header,
@@ -2151,11 +2174,7 @@ body.scrolled-past-hero .hero-scroll-indicator {
     }
 
     .project-gallery-arc-grid {
-        gap: var(--space-md);
-    }
-
-    .project-gallery-item.orientation-portrait {
-        max-width: 380px;
+        gap: var(--space-lg);
     }
 
     .related-projects {
