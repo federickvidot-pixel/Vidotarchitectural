@@ -12,6 +12,22 @@
     const textBelow = document.querySelector('.projects-title');
     let ticking = false;
 
+    /** Mobile: blur hero video/image progressively while scrolling (depth cue). */
+    function updateHeroScrollBlur() {
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!isMobile || reduceMotion) {
+            document.documentElement.style.removeProperty('--hero-scroll-blur');
+            return;
+        }
+        const heroHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+        const maxBlurPx = 12;
+        const progress = Math.min(scrollY / Math.max(heroHeight * 0.45, 1), 1);
+        const blur = progress * maxBlurPx;
+        document.documentElement.style.setProperty('--hero-scroll-blur', blur.toFixed(2) + 'px');
+    }
+
     function getTextWidth() {
         return textBelow ? textBelow.getBoundingClientRect().width : window.innerWidth;
     }
@@ -38,6 +54,7 @@
             heroWrapper.style.marginLeft = '';
             heroWrapper.style.marginRight = '';
         }
+        updateHeroScrollBlur();
         ticking = false;
     }
 

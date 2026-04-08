@@ -1846,6 +1846,17 @@ body.scrolled-past-hero .hero-scroll-indicator {
         display: none;
     }
 
+    /* Easier to spot on load (sits higher above home indicator / safe area) */
+    .hero-scroll-indicator {
+        bottom: calc(var(--space-xl) + env(safe-area-inset-bottom, 0px));
+    }
+
+    /* Scroll-linked blur on hero media only (JS sets --hero-scroll-blur on mobile) */
+    .hero-image .hero-video,
+    .hero-image .hero-fallback-img {
+        filter: blur(var(--hero-scroll-blur, 0px));
+    }
+
     main {
         text-align: center;
     }
