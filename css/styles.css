@@ -2057,6 +2057,11 @@ body.scrolled-past-hero .hero-scroll-indicator {
 
     .project-detail-title {
         font-size: clamp(2.5rem, 10vw, 6rem);
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
     }
 
     /* Mobile typography – 768px */
