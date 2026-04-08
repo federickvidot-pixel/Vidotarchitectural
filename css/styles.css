@@ -1818,10 +1818,14 @@ body.scrolled-past-hero .hero-scroll-indicator {
         box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
     }
 
-    /* Disable hero scroll animation on mobile */
+    /* Disable hero scroll animation on mobile; round bottom corners of hero media */
+    .hero-image {
+        border-radius: 0 0 var(--radius-image) var(--radius-image);
+    }
+
     .hero-image-wrapper.scrolled .hero-image {
         inset: 0;
-        border-radius: 0;
+        border-radius: 0 0 var(--radius-image) var(--radius-image);
         box-shadow: none;
     }
 
