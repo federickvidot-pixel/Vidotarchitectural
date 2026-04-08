@@ -53,6 +53,21 @@
     --transition: 0.3s ease;
 }
 
+/* Abbreviated copy on small screens (paired .only-desktop / .only-mobile in markup) */
+.only-mobile {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .only-desktop {
+        display: none !important;
+    }
+
+    .only-mobile {
+        display: block !important;
+    }
+}
+
 html {
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
@@ -1904,10 +1919,6 @@ body.scrolled-past-hero .hero-scroll-indicator {
 
     .projects-title {
         margin-bottom: var(--space-xl);
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
     }
 
     .project-image {
@@ -1938,38 +1949,6 @@ body.scrolled-past-hero .hero-scroll-indicator {
 
     .process-detail-headline {
         margin-bottom: var(--space-md);
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .section-tagline {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .process-detail-text {
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .projects-page-intro {
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .about-contact-intro {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
     }
 
     .quote-cta {
@@ -1990,27 +1969,6 @@ body.scrolled-past-hero .hero-scroll-indicator {
     .project-quote {
         padding-left: var(--page-margin);
         padding-right: var(--page-margin);
-    }
-
-    .project-detail-intro {
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .project-section-content p {
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .project-gallery-description {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
     }
 
     .project-detail-meta {
@@ -2384,21 +2342,6 @@ body.scrolled-past-hero .hero-scroll-indicator {
         margin-top: var(--space-xs);
     }
 
-    .projects-title {
-        -webkit-line-clamp: 3;
-    }
-    .section-tagline {
-        -webkit-line-clamp: 2;
-    }
-    .process-detail-text,
-    .project-detail-intro,
-    .project-section-content p {
-        -webkit-line-clamp: 3;
-    }
-    .projects-page-intro {
-        -webkit-line-clamp: 3;
-    }
-
     /* Mobile typography – 480px */
     body {
         font-size: 16px;
@@ -2535,14 +2478,6 @@ body.scrolled-past-hero .hero-scroll-indicator {
 
     .footer {
         padding: var(--space-sm) var(--page-margin);
-    }
-
-    .projects-title {
-        -webkit-line-clamp: 3;
-    }
-    .section-tagline,
-    .about-contact-intro {
-        -webkit-line-clamp: 2;
     }
 
     /* Mobile typography – 375px */
