@@ -1,0 +1,5 @@
+# Vidot Architectural Furniture
+User-agent: *
+Allow: /
+
+Sitemap: https://www.vidotarchitectural.com/sitemap.xml
