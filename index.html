@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" href="Image/apple-touch-icon.png" sizes="180x180">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"LocalBusiness","name":"Vidot Architectural Furniture Inc.","url":"https://www.vidotarchitectural.com/","image":"https://www.vidotarchitectural.com/Image/Projects/Project%201/Card-1.webp","telephone":"+1-514-739-1433","email":"Vidotarchitectural@bellnet.ca","address":{"@type":"PostalAddress","streetAddress":"8231 Rue de l'Industrie","addressLocality":"Anjou","addressRegion":"QC","postalCode":"H1J 1X8","addressCountry":"CA"},"foundingDate":"1997","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"}],"priceRange":"$$"}
     </script>
@@ -70,15 +70,20 @@
                 </div>
                 <a href="#projects" class="btn btn-secondary hero-fade-in">See Our Work</a>
             </div>
-            <a href="#projects" class="hero-scroll-indicator" aria-label="Scroll down">
+            <a href="#projects" class="hero-scroll-indicator" aria-label="Scroll down to projects">
+                <span class="hero-scroll-ring" aria-hidden="true">
+                    <svg class="hero-scroll-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14"/>
+                        <path d="m6 13 6 6 6-6"/>
+                    </svg>
+                </span>
                 <span class="hero-scroll-text">Scroll down</span>
-                <span class="hero-scroll-line"></span>
             </a>
         </section>
 
         <section id="projects" class="projects">
-            <h2 class="projects-title animate-on-scroll"><span class="only-desktop">A selection of our recent projects that reflect our commitment to quality, craftsmanship, and thoughtful design. Each piece tells a story of collaboration between architects, clients, and our team—resulting in spaces and furniture built to last.</span><span class="only-mobile">Recent work focused on quality, craft, and collaboration—spaces and furniture built to last.</span></h2>
-            <p class="projects-label animate-on-scroll">Latest Projects</p>
+            <h2 class="projects-label animate-on-scroll">Latest Projects</h2>
+            <p class="projects-title animate-on-scroll"><span class="only-desktop">A selection of our recent projects that reflect our commitment to quality, craftsmanship, and thoughtful design. Each piece tells a story of collaboration between architects, clients, and our team—resulting in spaces and furniture built to last.</span><span class="only-mobile">Recent work focused on quality, craft, and collaboration—spaces and furniture built to last.</span></p>
             <div class="projects-grid">
                 <article class="project-card animate-on-scroll">
                     <a href="white-pastry-kitchen.html" class="project-link">
@@ -121,7 +126,7 @@
 
         <section id="process" class="process">
             <div class="process-hero">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=85" alt="Woodworking craftsmanship">
+                <img loading="lazy" src="Image/process-hero-workshop.webp" alt="Craftsman assembling custom cabinetry in the workshop—hands-on fabrication and collaborative process">
                 <div class="process-hero-content">
                     <h2 class="section-title">Collaborative Craftsmen</h2>
                     <p class="section-tagline"><span class="only-desktop">We design and build for people. No matter the scale of the project, our down-to-earth approach stays the same—we listen first, build second.</span><span class="only-mobile">We design and build for people—listen first, build second.</span></p>
@@ -156,15 +161,25 @@
         </section>
 
         <footer id="contact" class="footer">
-            <a href="#main" class="back-to-top" aria-label="Back to top of page">Back to the top of the page</a>
-            
-            <div class="footer-info">
-                <p class="company-name">Vidot Architectural Furniture</p>
-                <a href="tel:+15147391433">+1 (514) 739-1433</a>
-                <a href="mailto:Vidotarchitectural@bellnet.ca">Vidotarchitectural@bellnet.ca</a>
-                <address>8231 Rue de l'Industrie, Anjou, QC H1J 1X8</address>
-                <p class="footer-privacy"><a href="privacy.html">Privacy policy</a></p>
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <p class="footer-company-name">Vidot Architectural Furniture</p>
+                </div>
+                <div class="footer-contact">
+                    <p class="footer-contact-label">Contact</p>
+                    <ul class="footer-contact-list">
+                        <li><a href="tel:+15147391433">+1 (514) 739-1433</a></li>
+                        <li><a href="mailto:Vidotarchitectural@bellnet.ca">Vidotarchitectural@bellnet.ca</a></li>
+                        <li>
+                            <address class="footer-address">8231 Rue de l'Industrie, Anjou, QC H1J 1X8</address>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#main" class="btn btn-secondary back-to-top" aria-label="Back to top of page">Back to top</a>
+            </div>
+            <div class="footer-meta">
                 <p class="footer-copyright">© 2026 Vidot Architectural Furniture. All rights reserved.</p>
+                <p class="footer-privacy"><a href="privacy.html">Privacy policy</a></p>
             </div>
         </footer>
     </main>

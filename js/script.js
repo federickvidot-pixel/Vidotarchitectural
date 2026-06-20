@@ -161,9 +161,20 @@
     const contactModalBackdrop = contactModal?.querySelector('.contact-modal-backdrop');
     const contactModalClose = contactModal?.querySelector('.contact-modal-close');
     const contactForm = document.querySelector('.contact-form');
+    let contactModalTrigger = null;
 
-    function openContactModal() {
+    function getContactModalFocusables() {
+        if (!contactModal) return [];
+        return Array.from(
+            contactModal.querySelectorAll(
+                'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled])'
+            )
+        );
+    }
+
+    function openContactModal(trigger) {
         if (!contactModal) return;
+        contactModalTrigger = trigger || document.activeElement;
         contactModal.setAttribute('aria-hidden', 'false');
         contactModal.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -175,12 +186,16 @@
         contactModal.setAttribute('aria-hidden', 'true');
         contactModal.classList.remove('active');
         document.body.style.overflow = '';
+        if (contactModalTrigger && typeof contactModalTrigger.focus === 'function') {
+            contactModalTrigger.focus();
+        }
+        contactModalTrigger = null;
     }
 
     document.querySelectorAll('a.contact-trigger').forEach((link) => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            openContactModal();
+            openContactModal(e.currentTarget);
         });
     });
 
@@ -188,7 +203,26 @@
     if (contactModalClose) contactModalClose.addEventListener('click', closeContactModal);
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && contactModal?.classList.contains('active')) closeContactModal();
+        if (e.key === 'Escape' && contactModal?.classList.contains('active')) {
+            closeContactModal();
+            return;
+        }
+
+        if (e.key !== 'Tab' || !contactModal?.classList.contains('active')) return;
+
+        const focusables = getContactModalFocusables();
+        if (!focusables.length) return;
+
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
     });
 
     if (contactForm) {
@@ -204,7 +238,7 @@
             const email = contactForm.querySelector('#contact-email')?.value?.trim() || '';
             const phone = contactForm.querySelector('#contact-phone')?.value?.trim() || '';
             const message = contactForm.querySelector('#contact-message')?.value?.trim() || '';
-            const valid = name && email && email.includes('@');
+            const valid = name && email && email.includes('@') && message;
 
             if (!valid) {
                 if (errorEl) errorEl.hidden = false;
@@ -222,6 +256,7 @@
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                     body: JSON.stringify({
                         _subject: 'Contact Form — ' + name,
+                        _origin: 'https://www.vidotarchitectural.com',
                         name: name,
                         email: email,
                         phone: phone || '(not provided)',
